@@ -3,6 +3,6 @@
  * use this file to start your server.
  */
 
-const { startServer } = require('./server');
+const { startServer } = require("./server");
 
 startServer();

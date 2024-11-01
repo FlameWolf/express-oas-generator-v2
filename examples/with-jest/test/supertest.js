@@ -8,7 +8,7 @@
  * every time we call the `request`.
  */
 
-const supertest = require('supertest');
+const supertest = require("supertest");
 
 const PORT = Number(process.env.PORT) || 5000;
 const baseUrl = `http://localhost:${PORT}`;
@@ -16,5 +16,5 @@ const baseUrl = `http://localhost:${PORT}`;
 const supertestWrap = supertest(baseUrl);
 
 module.exports = {
-  supertest: supertestWrap
+  supertest: supertestWrap,
 };

@@ -7,57 +7,56 @@
  * https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html
  */
 
-import { Express } from 'express';
-import { OpenAPIV2, OpenAPIV3 } from 'openapi-types';
-import { SwaggerUiOptions } from "swagger-ui-express"
+import { Express } from "express";
+import { OpenAPIV2, OpenAPIV3 } from "openapi-types";
+import { SwaggerUiOptions } from "swagger-ui-express";
 
 /** re-export for ease of use for the end user */
-export {
-	OpenAPIV2,
-	OpenAPIV3,
-	SwaggerUiOptions
-};
+export { OpenAPIV2, OpenAPIV3, SwaggerUiOptions };
 
 export enum SPEC_OUTPUT_FILE_BEHAVIOR {
-	PRESERVE = 'PRESERVE',
-	RECREATE = 'RECREATE'
+  PRESERVE = "PRESERVE",
+  RECREATE = "RECREATE",
 }
 
 /** Options for `handleResponses` */
 export interface HandleResponsesOptions {
-	/** from where there generated documentation will be available */
-	swaggerUiServePath?: string;
+  /** from where there generated documentation will be available */
+  swaggerUiServePath?: string;
 
-	/**
-	 * where to write the openAPI specification to.
-	 *
-	 * Specify this to create the openAPI specification file
-	 */
-	specOutputPath?: string;
+  /**
+   * where to write the openAPI specification to.
+   *
+   * Specify this to create the openAPI specification file
+   */
+  specOutputPath?: string;
 
-	/** either the Swagger specification or a function with one argument, which returns the spec */
-	predefinedSpec?: object | OpenAPIV2.Document | OpenAPIV3.Document |
-	((spec: OpenAPIV2.Document) => OpenAPIV2.Document) |
-	((spec: OpenAPIV3.Document) => OpenAPIV3.Document);
+  /** either the Swagger specification or a function with one argument, which returns the spec */
+  predefinedSpec?:
+    | object
+    | OpenAPIV2.Document
+    | OpenAPIV3.Document
+    | ((spec: OpenAPIV2.Document) => OpenAPIV2.Document)
+    | ((spec: OpenAPIV3.Document) => OpenAPIV3.Document);
 
-	/** how often to write the openAPI specification to file */
-	writeIntervalMs?: number;
+  /** how often to write the openAPI specification to file */
+  writeIntervalMs?: number;
 
-	/** Mongoose model names */
-	mongooseModels?: Array<string>;
+  /** Mongoose model names */
+  mongooseModels?: Array<string>;
 
-	/** Tags to be used */
-	tags?: Array<string>;
+  /** Tags to be used */
+  tags?: Array<string>;
 
-	/** Ignored node environments */
-	ignoredNodeEnvironments?: Array<string>;
+  /** Ignored node environments */
+  ignoredNodeEnvironments?: Array<string>;
 
-	/** Always serve api docs */
-	alwaysServeDocs?: boolean;
+  /** Always serve api docs */
+  alwaysServeDocs?: boolean;
 
-	specOutputFileBehavior: SPEC_OUTPUT_FILE_BEHAVIOR | string;
+  specOutputFileBehavior: SPEC_OUTPUT_FILE_BEHAVIOR | string;
 
-	swaggerDocumentOptions: SwaggerUiOptions;
+  swaggerDocumentOptions: SwaggerUiOptions;
 }
 
 /**
@@ -67,7 +66,10 @@ export interface HandleResponsesOptions {
  *
  * @description apply the `response` middleware.
  */
-export function handleResponses(expressApp: Express, options: HandleResponsesOptions): void;
+export function handleResponses(
+  expressApp: Express,
+  options: HandleResponsesOptions,
+): void;
 
 /**
  * Apply this **last**!
@@ -100,21 +102,23 @@ export function handleRequests(): void;
  * and also will call `serveApiDocs`.
  */
 export function init(
-	expressApp: Express,
-	predefinedSpec?: HandleResponsesOptions['predefinedSpec'],
-	specOutputPath?: HandleResponsesOptions['specOutputPath'],
-	writeIntervalMs?: HandleResponsesOptions['writeIntervalMs'],
-	swaggerUiServePath?: HandleResponsesOptions['swaggerUiServePath'],
-	mongooseModels?: HandleResponsesOptions['mongooseModels'],
-	tags?: HandleResponsesOptions['tags'],
-	ignoredNodeEnvironments?: HandleResponsesOptions['ignoredNodeEnvironments'],
-	alwaysServeDocs?: HandleResponsesOptions['alwaysServeDocs'],
-	specOutputFileBehavior?: HandleResponsesOptions['specOutputFileBehavior'],
-	swaggerDocumentOptions?: HandleResponsesOptions['swaggerDocumentOptions']
+  expressApp: Express,
+  predefinedSpec?: HandleResponsesOptions["predefinedSpec"],
+  specOutputPath?: HandleResponsesOptions["specOutputPath"],
+  writeIntervalMs?: HandleResponsesOptions["writeIntervalMs"],
+  swaggerUiServePath?: HandleResponsesOptions["swaggerUiServePath"],
+  mongooseModels?: HandleResponsesOptions["mongooseModels"],
+  tags?: HandleResponsesOptions["tags"],
+  ignoredNodeEnvironments?: HandleResponsesOptions["ignoredNodeEnvironments"],
+  alwaysServeDocs?: HandleResponsesOptions["alwaysServeDocs"],
+  specOutputFileBehavior?: HandleResponsesOptions["specOutputFileBehavior"],
+  swaggerDocumentOptions?: HandleResponsesOptions["swaggerDocumentOptions"],
 ): void;
 
 export const getSpec: () => object | OpenAPIV2.Document;
 
-export const getSpecV3: (callback: (err: object | string, specV3: object | OpenAPIV3.Document) => void) => void
+export const getSpecV3: (
+  callback: (err: object | string, specV3: object | OpenAPIV3.Document) => void,
+) => void;
 
 export const setPackageInfoPath: (pkgInfoPath: string) => void;

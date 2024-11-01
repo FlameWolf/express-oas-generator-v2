@@ -39,13 +39,15 @@ Example:
 ```
 
 Goals:
-* Keep docs always up-to-date and close to the code
-* Improve current REST API design review process
-* Provide interface to explore REST API
+
+- Keep docs always up-to-date and close to the code
+- Improve current REST API design review process
+- Provide interface to explore REST API
 
 ## Initial generation and improving the spec
 
 Initial generation:
+
 1. Deploy
 2. Run TA or/and use UI
 3. Fetch JSON from http://host/api-spec
@@ -53,7 +55,7 @@ Initial generation:
 5. Add as a patch to expressOasGenerator
 
 ```js
-expressOasGenerator.init(app, require('api-spec.json'));
+expressOasGenerator.init(app, require("api-spec.json"));
 ```
 
 Rule for improving the spec: "Whenever changing spec (adding new features) make endpoint a bit better: add a description, tag or something else".
@@ -61,13 +63,15 @@ Rule for improving the spec: "Whenever changing spec (adding new features) make 
 (Demo)
 
 Questions:
-* Grouping endpoints
-* Cleaning up the data (requests/responses, internal endpoints). Generator replaces passwords with '******', what other sensitive information do we have?
+
+- Grouping endpoints
+- Cleaning up the data (requests/responses, internal endpoints). Generator replaces passwords with '**\*\***', what other sensitive information do we have?
 
 Problems:
-* If no initial spec is provided redeploy of micro-service will wipe the spec
-* 2 nodes behind load balancer thus generated spec could be not complete
-* Possible slow down of the micro-service. Middleware process every request and keep swagger spec in memory
+
+- If no initial spec is provided redeploy of micro-service will wipe the spec
+- 2 nodes behind load balancer thus generated spec could be not complete
+- Possible slow down of the micro-service. Middleware process every request and keep swagger spec in memory
 
 ## Changing API (new feature development)
 

@@ -6,10 +6,10 @@
 const { defaults } = require("jest-config");
 
 const config = {
-	...defaults,
-	testEnvironment: "node",
-	globalSetup: "./setup.js",
-	globalTeardown: "./teardown.js",
+  ...defaults,
+  testEnvironment: "node",
+  globalSetup: "./setup.js",
+  globalTeardown: "./teardown.js",
 };
 
 module.exports = config;

@@ -6,17 +6,11 @@
     "strict": true,
     "target": "es6",
     "module": "commonjs",
-    "lib": [
-      "dom", //
-      "es6",
-      "es2017",
-      "esnext.asynciterable"
-    ],
+    "lib": ["dom", "es6", "es2017", "esnext.asynciterable"],
     "sourceMap": true,
-    // "outDir": "./dist", /** disabled since we don't emit js */
     "moduleResolution": "node",
     "removeComments": false,
-    "noImplicitAny": false /** TODO - true (will require quite some fixing; it's worth it) */,
+    "noImplicitAny": false,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "noImplicitThis": true,
@@ -31,13 +25,6 @@
     "resolveJsonModule": true,
     "baseUrl": "."
   },
-  "exclude": [
-    "node_modules", //
-    "build",
-    "docs"
-  ],
-  "include": [
-    "./index.js", //
-    "./lib/**/*.js"
-  ]
+  "exclude": ["node_modules", "build", "docs"],
+  "include": ["./index.js", "./lib/**/*.js"]
 }
