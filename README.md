@@ -1,4 +1,4 @@
-# express-oas-generator-v2
+# express-oas-generator-v2-v2
 
 ## This is a fork of [@mpashkovskiy's express-oas-generator](https://github.com/mpashkovskiy/express-oas-generator) package, which is unfortunately no longer maintained.
 
@@ -18,12 +18,12 @@ Module to:
 
 > Note - make sure to also read the [Advanced usage (recommended)](#advanced-usage-recommended) section after this!
 
-- Install module `npm i express-oas-generator --save`;
+- Install module `npm i express-oas-generator-v2 --save`;
 - Import it in a script where you initialize ExpressJS application (see [server_basic.js](server_basic.js) for usage example);
 
 ```javascript
 const express = require("express");
-const expressOasGenerator = require("express-oas-generator");
+const expressOasGenerator = require("express-oas-generator-v2");
 ```
 
 - Run initialization of module right after instantiating app;
@@ -209,11 +209,11 @@ Assuming you have ExpressJS REST API application and you
   - calling next() https://expressjs.com/en/guide/writing-middleware.html
   - handling errors with next() https://expressjs.com/en/guide/error-handling.html
 
-  For more info please read the entire [issue report](https://github.com/mpashkovskiy/express-oas-generator/issues/24)
+  For more info please read the entire [issue report](https://github.com/mpashkovskiy/express-oas-generator-v2/issues/24)
 
 # Contributing
 
 Please read:
 
-- [CONTRIBUTING.md](https://github.com/mpashkovskiy/express-oas-generator/tree/master/CONTRIBUTING.md)
-- [CODE_OF_CONDUCT.md](https://github.com/mpashkovskiy/express-oas-generator/tree/master/CODE_OF_CONDUCT.md)
+- [CONTRIBUTING.md](https://github.com/mpashkovskiy/express-oas-generator-v2/tree/master/CONTRIBUTING.md)
+- [CODE_OF_CONDUCT.md](https://github.com/mpashkovskiy/express-oas-generator-v2/tree/master/CODE_OF_CONDUCT.md)

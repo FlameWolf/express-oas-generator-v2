@@ -89,7 +89,7 @@ Before you submit your Pull Request (PR) consider the following guidelines:
    git push origin my-fix-branch
    ```
 
-10. In GitHub, send a pull request to `express-oas-generator:master`.
+10. In GitHub, send a pull request to `express-oas-generator-v2:master`.
 
 ##### Updating the commit message
 
@@ -242,6 +242,6 @@ The content of the commit message body should contain:
 - information about the SHA of the commit being reverted in the following format: `This reverts commit <SHA>`,
 - a clear description of the reason for reverting the commit message.
 
-[coc]: https://github.com/mpashkovskiy/express-oas-generator/tree/master/CODE_OF_CONDUCT.md
-[github]: https://github.com/mpashkovskiy/express-oas-generator
+[coc]: https://github.com/mpashkovskiy/express-oas-generator-v2/tree/master/CODE_OF_CONDUCT.md
+[github]: https://github.com/mpashkovskiy/express-oas-generator-v2
 [commit-message-format]: https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#

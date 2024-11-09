@@ -1,5 +1,5 @@
-// Type definitions for express-oas-generator 1.0.17
-// Project: https://github.com/mpashkovskiy/express-oas-generator
+// Type definitions for express-oas-generator-v2 1.0.17
+// Project: https://github.com/mpashkovskiy/express-oas-generator-v2
 // Definitions by: Kipras Melnikovas <https://github.com/sarpik>
 
 /**
@@ -94,9 +94,9 @@ export function handleRequests(): void;
  * since we're only using an arbitrary setTimeout of `1000` ms.
  *
  * See
- * https://github.com/mpashkovskiy/express-oas-generator/pull/32#issuecomment-546807216
+ * https://github.com/mpashkovskiy/express-oas-generator-v2/pull/32#issuecomment-546807216
  *
- * @description initialize the `express-oas-generator`.
+ * @description initialize the `express-oas-generator-v2`.
  *
  * This will apply both `handleResponses` and `handleRequests`
  * and also will call `serveApiDocs`.

@@ -48,7 +48,7 @@ right after initializing the express app,
 2. and place the REQUEST middleware LAST,
 inside the app.listen callback
 
-For more information, see https://github.com/mpashkovskiy/express-oas-generator#Advanced-usage-recommended
+For more information, see https://github.com/mpashkovskiy/express-oas-generator-v2#Advanced-usage-recommended
 `;
 
 let packageJsonPath = `${process.cwd()}/package.json`;
@@ -509,7 +509,7 @@ function handleRequests() {
  * I think we should be checking for falsy values, not only `undefined` ones.
  *
  * 3. (Breaking) Use object for optional parameters:
- * https://github.com/mpashkovskiy/express-oas-generator/issues/35
+ * https://github.com/mpashkovskiy/express-oas-generator-v2/issues/35
  *
  */
 /**
