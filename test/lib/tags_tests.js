@@ -15,7 +15,7 @@ describe("tags.js", () => {
     it("WHEN path contains tags THEN it should include them", () => {
       const tags = ["User", "Student"];
       const tagsSpec = generateTagsSpec(tags);
-      const path = "/users/:id";
+      const path = "/users/{:id}";
       const tagsMatchingPath = matchingTags(tagsSpec, path);
       return expect(tagsMatchingPath).toEqual([tags.shift()]);
     });

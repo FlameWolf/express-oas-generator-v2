@@ -36,11 +36,11 @@ router.route("/students/stranger").post(function (req, res, next) {
   res.json(req.body);
   return next();
 });
-router.route("/students/:name").get(function (req, res, next) {
+router.route("/students/{:name}").get(function (req, res, next) {
   if (res.headersSent) {
     return next();
   }
-  console.log("calling /students/:name");
+  console.log("calling /students/{:name}");
   let a = Math.random();
   if (a > 0.5) {
     res.json({ message: "hello " + req.params.name });

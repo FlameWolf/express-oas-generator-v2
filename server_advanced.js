@@ -32,11 +32,11 @@ router.route("/students/stranger").get(function (req, res, next) {
   res.json({ message: "hello stranger" });
   return next();
 });
-router.route("/students/:name").get(function (req, res, next) {
+router.route("/students/{:name}").get(function (req, res, next) {
   if (res.headersSent) {
     return next();
   }
-  console.log("calling /students/:name");
+  console.log("calling /students/{:name}");
   res.json({ message: "hello " + req.params.name });
   return next();
 });

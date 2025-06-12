@@ -12,7 +12,7 @@ const { versions } = require("../lib/openapi");
 let { logger } = require("../lib/logger");
 
 const MS_TO_STARTUP = 2000;
-const port = 8888;
+const port = 8088;
 const ERROR_RESPONSE_CODE = 500;
 const BASE_PATH = "/api/v1";
 const ERROR_PATH = "/error";
@@ -86,7 +86,7 @@ describe("index.js", () => {
     });
     app.use("/should_not_be_handled", middleware);
     let router = express.Router();
-    router.get("/success/:param/router", middleware);
+    router.get("/success/{:param}/router", middleware);
     router.get("/success-no-param", middleware);
     router.get(ERROR_PATH, (req, res, next) => next({ error: "error" }));
     app.use(BASE_PATH, router);
