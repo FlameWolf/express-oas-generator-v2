@@ -18,7 +18,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/FlameWolf/express-oas-generator-v2.git"
+		"url": "https://github.com/FlameWolf/express-oas-generator-v2"
 	},
 	"keywords": [
 		"ExpressJS",
