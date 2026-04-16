@@ -2,8 +2,7 @@
 
 ## Open API (Swagger) Specification
 
-Specification for machine-readable interface files for describing, producing, consuming, and visualizing RESTful Web services.
-Specification is used also by AWS API Gateway.
+Specification for machine-readable interface files for describing, producing, consuming, and visualizing RESTful Web services. Specification is used also by AWS API Gateway.
 
 Example:
 
@@ -40,9 +39,9 @@ Example:
 
 Goals:
 
-- Keep docs always up-to-date and close to the code
-- Improve current REST API design review process
-- Provide interface to explore REST API
+-   Keep docs always up-to-date and close to the code
+-   Improve current REST API design review process
+-   Provide interface to explore REST API
 
 ## Initial generation and improving the spec
 
@@ -64,14 +63,14 @@ Rule for improving the spec: "Whenever changing spec (adding new features) make 
 
 Questions:
 
-- Grouping endpoints
-- Cleaning up the data (requests/responses, internal endpoints). Generator replaces passwords with '**\*\***', what other sensitive information do we have?
+-   Grouping endpoints
+-   Cleaning up the data (requests/responses, internal endpoints). Generator replaces passwords with '**\*\***', what other sensitive information do we have?
 
 Problems:
 
-- If no initial spec is provided redeploy of micro-service will wipe the spec
-- 2 nodes behind load balancer thus generated spec could be not complete
-- Possible slow down of the micro-service. Middleware process every request and keep swagger spec in memory
+-   If no initial spec is provided redeploy of micro-service will wipe the spec
+-   2 nodes behind load balancer thus generated spec could be not complete
+-   Possible slow down of the micro-service. Middleware process every request and keep swagger spec in memory
 
 ## Changing API (new feature development)
 
@@ -79,8 +78,7 @@ Problems:
 2. Create PR
 3. Merge PR
 
-Problem: Spec contains unimplemented feature:
-Solution: Would be good PR will be merged together with implementation
+Problem: Spec contains unimplemented feature: Solution: Would be good PR will be merged together with implementation
 
 ## Publishing API docs
 

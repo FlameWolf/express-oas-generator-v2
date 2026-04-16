@@ -16,5 +16,5 @@ const baseUrl = `http://localhost:${PORT}`;
 const supertestWrap = supertest(baseUrl);
 
 module.exports = {
-  supertest: supertestWrap,
+	supertest: supertestWrap
 };

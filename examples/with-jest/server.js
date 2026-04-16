@@ -14,26 +14,24 @@ const openAPIFilePath = "./path/to/file.json";
 
 /** handle the responses */
 if (process.env.NODE_ENV !== "production") {
-  /** work-around until we fix https://github.com/mpashkovskiy/express-oas-generator-v2/issues/51 */
-  mkdirp.sync(path.parse(openAPIFilePath).dir);
+	/** work-around until we fix https://github.com/mpashkovskiy/express-oas-generator-v2/issues/51 */
+	mkdirp.sync(path.parse(openAPIFilePath).dir);
 
-  /** work-around until we fix https://github.com/mpashkovskiy/express-oas-generator-v2/issues/52 */
-  let predefinedSpec;
+	/** work-around until we fix https://github.com/mpashkovskiy/express-oas-generator-v2/issues/52 */
+	let predefinedSpec;
 
-  try {
-    predefinedSpec = JSON.parse(
-      fs.readFileSync(openAPIFilePath, { encoding: "utf-8" }),
-    );
-  } catch (e) {
-    //
-  }
+	try {
+		predefinedSpec = JSON.parse(fs.readFileSync(openAPIFilePath, { encoding: "utf-8" }));
+	} catch (e) {
+		//
+	}
 
-  /** work-arounds done. Now handle responses - MUST be the FIRST middleware */
-  handleResponses(app, {
-    specOutputPath: openAPIFilePath,
-    writeIntervalMs: 0,
-    predefinedSpec: predefinedSpec ? () => predefinedSpec : undefined,
-  });
+	/** work-arounds done. Now handle responses - MUST be the FIRST middleware */
+	handleResponses(app, {
+		specOutputPath: openAPIFilePath,
+		writeIntervalMs: 0,
+		predefinedSpec: predefinedSpec ? () => predefinedSpec : undefined
+	});
 }
 
 /** add any other middleware */
@@ -42,31 +40,31 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.get("/api/v1/student", (_req, res, next) => {
-  try {
-    /**
-     * the data here does not matter - we just want to create a simple response
-     * from which express-oas-generator-v2 can create documentation
-     */
-    const student = {
-      id: 1337,
-      name: "Robert'); DROP TABLE Students;--",
-    };
+	try {
+		/**
+		 * the data here does not matter - we just want to create a simple response
+		 * from which express-oas-generator-v2 can create documentation
+		 */
+		const student = {
+			id: 1337,
+			name: "Robert'); DROP TABLE Students;--"
+		};
 
-    res.json({ student });
+		res.json({ student });
 
-    /** `next` must be called so that our request handler also gets reached */
-    next();
-  } catch (e) {
-    /** handle the error */
+		/** `next` must be called so that our request handler also gets reached */
+		next();
+	} catch (e) {
+		/** handle the error */
 
-    /** lastly - call `next` with the exception `e` */
-    next(e);
-  }
+		/** lastly - call `next` with the exception `e` */
+		next(e);
+	}
 });
 
 /** lastly - add the express-oas-generator-v2 request handler (MUST be the LAST middleware) */
 if (process.env.NODE_ENV !== "production") {
-  handleRequests();
+	handleRequests();
 }
 
 /** optionally - export the app if you need it */
@@ -83,15 +81,13 @@ module.exports.app = app;
  *
  */
 function startServer() {
-  const PORT = Number(process.env.PORT) || 5000;
+	const PORT = Number(process.env.PORT) || 5000;
 
-  const server = app.listen(PORT, () => {
-    console.log(
-      `~ Server listening on PORT \`${PORT}\` @ NODE_ENV \`${process.env.NODE_ENV}\``,
-    );
-  });
+	const server = app.listen(PORT, () => {
+		console.log(`~ Server listening on PORT \`${PORT}\` @ NODE_ENV \`${process.env.NODE_ENV}\``);
+	});
 
-  return server;
+	return server;
 }
 
 module.exports.startServer = startServer;

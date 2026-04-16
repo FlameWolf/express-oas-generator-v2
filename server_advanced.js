@@ -10,44 +10,40 @@ const { SPEC_OUTPUT_FILE_BEHAVIOR } = generator;
 
 const app = express();
 generator.handleResponses(app, {
-  predefinedSpec: function (spec) {
-    _.set(
-      spec,
-      'paths["/students/{name}"].get.parameters[0].description',
-      "description of a parameter",
-    );
-    return spec;
-  },
-  specOutputPath: "./test_spec.json",
-  mongooseModels: modelNames,
-  alwaysServeDocs: true,
-  specOutputFileBehavior: SPEC_OUTPUT_FILE_BEHAVIOR.PRESERVE,
+	predefinedSpec: function (spec) {
+		_.set(spec, 'paths["/students/{name}"].get.parameters[0].description', "description of a parameter");
+		return spec;
+	},
+	specOutputPath: "./test_spec.json",
+	mongooseModels: modelNames,
+	alwaysServeDocs: true,
+	specOutputFileBehavior: SPEC_OUTPUT_FILE_BEHAVIOR.PRESERVE
 });
 
 app.use(bodyParser.json({}));
 let router = express.Router();
 router.route("/students/stranger").get(function (req, res, next) {
-  //code here
-  console.log("calling /students/stranger");
-  res.json({ message: "hello stranger" });
-  return next();
+	//code here
+	console.log("calling /students/stranger");
+	res.json({ message: "hello stranger" });
+	return next();
 });
 router.route("/students/{:name}").get(function (req, res, next) {
-  if (res.headersSent) {
-    return next();
-  }
-  console.log("calling /students/{:name}");
-  res.json({ message: "hello " + req.params.name });
-  return next();
+	if (res.headersSent) {
+		return next();
+	}
+	console.log("calling /students/{:name}");
+	res.json({ message: "hello " + req.params.name });
+	return next();
 });
 router.route("/gzip").get(function (req, res, next) {
-  console.log("calling /gzip");
-  res.setHeader("Content-Type", "application/json");
-  res.setHeader("Content-Encoding", "gzip");
-  zlib.gzip(JSON.stringify({ message: "gzip" }), function (error, result) {
-    res.status(200).send(result);
-    return next();
-  });
+	console.log("calling /gzip");
+	res.setHeader("Content-Type", "application/json");
+	res.setHeader("Content-Encoding", "gzip");
+	zlib.gzip(JSON.stringify({ message: "gzip" }), function (error, result) {
+		res.status(200).send(result);
+		return next();
+	});
 });
 app.use(router);
 app.disable("etag");
@@ -55,5 +51,5 @@ app.set("port", 8080);
 
 generator.handleRequests();
 app.listen(app.get("port"), function () {
-  console.log("Server started. Open http://localhost:8080/api-docs/");
+	console.log("Server started. Open http://localhost:8080/api-docs/");
 });
