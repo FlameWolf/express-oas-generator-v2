@@ -20,6 +20,9 @@
 		"type": "git",
 		"url": "https://github.com/FlameWolf/express-oas-generator-v2"
 	},
+	"publishConfig": {
+		"provenance": true
+	},
 	"keywords": [
 		"ExpressJS",
 		"OpenAPI",
