@@ -28,9 +28,9 @@
 	"author": "Matvey Pashkovskiy <mathew.pashkovsky@gmail.com> (https://www.linkedin.com/in/matvey-pashkovskiy-0a1a9940/)",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/mpashkovskiy/express-oas-generator-v2/issues"
+		"url": "https://github.com/FlameWolf/express-oas-generator-v2/issues"
 	},
-	"homepage": "https://github.com/mpashkovskiy/express-oas-generator-v2#readme",
+	"homepage": "https://github.com/FlameWolf/express-oas-generator-v2#readme",
 	"dependencies": {
 		"@types/express": "^5.0.6",
 		"express-list-endpoints": "^7.1.1",
